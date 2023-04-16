@@ -1,8 +1,9 @@
 import {
   BaseQueryApi,
+  createApi,
   FetchArgs,
   fetchBaseQuery,
-} from "@reduxjs/toolkit/query";
+} from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
 import { authActions } from "../../features/auth/slices/authSlice";
 
@@ -48,3 +49,8 @@ const baseQueryWithReAuth = async (
 
   return response;
 };
+
+export const apiSlice = createApi({
+  baseQuery: baseQueryWithReAuth,
+  endpoints: (builder) => ({}),
+});
