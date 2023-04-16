@@ -30,11 +30,9 @@ const baseQueryWithReAuth = async (
   extraOptions: any
 ) => {
   let response = await baseQuery(args, api, extraOptions);
-  console.log({ "response?.error?.status": response?.error?.status });
 
   if (response?.error?.status === 401) {
     const refreshedToken = await baseQuery("/token/refresh", api, extraOptions);
-    console.log(refreshedToken);
     if (refreshedToken?.data) {
       const data = refreshedToken.data as RefreshTokenDataType;
       const state = api.getState() as RootState;
