@@ -3,6 +3,7 @@ import RootLayout from "./pages/Layout/Root";
 import LoginPage from "./pages/Login";
 import AuthLayout from "./pages/Layout/Auth";
 import DashboardPage from "./pages/Dashboard";
+import PersistAuthLayout from "./pages/Layout/PersistAuth";
 
 const App = () => {
   return (
@@ -10,8 +11,10 @@ const App = () => {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<LoginPage />} />
 
-        <Route element={<AuthLayout />}>
-          <Route path="dashboard" element={<DashboardPage />} />
+        <Route element={<PersistAuthLayout />}>
+          <Route element={<AuthLayout />}>
+            <Route path="dashboard" element={<DashboardPage />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

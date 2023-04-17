@@ -24,7 +24,7 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-const baseQueryWithReAuth = async (
+export const baseQueryWithReAuth = async (
   args: string | FetchArgs,
   api: BaseQueryApi,
   extraOptions: any
